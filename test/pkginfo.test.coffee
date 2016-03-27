@@ -1,6 +1,6 @@
 should = require( "should" )
 assert = require( "assert" )
-pkgInfo = require '..'
+pkgInfo = require '../index'
 lib = require '../lib/pkgInfo'
 path = require "path"
 
