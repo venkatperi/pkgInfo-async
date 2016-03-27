@@ -5,8 +5,9 @@ fs = require( 'fs' )
 readJsonFile = ( filename, cb ) ->
   fs.readFile filename, ( err, data )  ->
     return cb err if err?
-    cb null, JSON.parse data
-
+    pkg = JSON.parse data
+    pkg.dirname = path.dirname filename
+    cb null, pkg
 
 module.exports = ( dir, cb ) ->
   dir = dir.filename or dir.id unless typeof(dir) is "string"

@@ -1,22 +1,23 @@
 {
   "name": "pkgInfo-async",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "preferGlobal": false,
-  "description": "Wrapper around winstonjs",
+  "description": "Finds closest package.json walking up dir tree from given module/dir",
   "dependencies": {
-    "glob": "^7.0.3",
-    "q": "^1.4.1",
-    "underscore": "^1.8.3"
+    "node-walkup": "^1.0.1"
   },
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
   "bundleDependencies": [],
-  "main": "lib/Log.coffee",
+  "main": "index.coffee",
   "devDependencies": {
-    "mocha": "^2.0.1",
-    "should": "^4.4.1"
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "should": "^8.3.0"
   },
   "author": "Venkat Peri <venkatperi@gmail.com> (http://www.vperi.com/)",
   "license": "MIT"
