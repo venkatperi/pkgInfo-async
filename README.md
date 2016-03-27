@@ -8,13 +8,13 @@ PkgInfo uses the `node-walkup` library do its dir walk up / glob'ing.
 Install with npm
 
 ```
-npm install pkgInfo-async
+npm install pkginfo-async
 ```
 
 ## Example
 
 ```javascript
-var pkgInfo = require("pkgInfo-async")
+var pkgInfo = require("pkginfo-async")
 
 pkgInfo(module, function (err, pkg) {
   // err is an error object or null.
