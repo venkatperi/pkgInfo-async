@@ -16,6 +16,14 @@ describe "pkgInfo", ->
       pkg.dirname.should.equal fixturesDir
       done()
 
+  it "returns a promise", ( done ) ->
+    pkgInfo fixturesDir
+    .then ( pkg ) ->
+      pkg.name.should.equal "fixtures"
+      pkg.dirname.should.equal fixturesDir
+      done()
+    .fail done
+
   it "walks up dir tree and returns contents of first package.json it finds, take 2", ( done ) ->
     pkgInfo dir, ( err, pkg ) ->
       pkg.name.should.equal "dir"
@@ -38,7 +46,10 @@ describe "pkgInfo", ->
       done()
 
   it "accepts a module", ( done ) ->
-    pkgInfo lib, ( err, pkg ) ->
-      pkg.name.should.equal "pkgInfo-async"
+    pkgInfo module
+    .then (pkg) ->
+      pkg.name.should.equal "pkginfo-async"
       done()
+    .fail done
+    .done()
 
