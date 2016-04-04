@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">README.md</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="pkginfo">PkgInfo</h1>
+<p>  Returns (async) the nearest <code>package.json</code> file from a module or directory by searching up the directory tree.</p>
+<p>PkgInfo uses the <code>node-walkup</code> library do its dir walk up / glob&#39;ing.</p>
+<h2 id="installation">Installation</h2>
+<p>Install with npm</p>
+<pre><code>npm install pkginfo-async</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> pkgInfo = <span class="hljs-built_in">require</span>(<span class="hljs-string">"pkginfo-async"</span>)
+
+pkgInfo(<span class="hljs-built_in">module</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, pkg</span>) </span>{
+  <span class="hljs-comment">// err is an error object or null.</span>
+  <span class="hljs-comment">// pkg is the contents of the package.json or null</span>
+})</code></pre>
+<h2 id="pkginfostart-cb">pkgInfo(start, cb)</h2>
+<ul>
+<li><code>start</code> <code>{String | Object}</code><ul>
+<li><code>{String}</code> dirname to start looking (upward) from</li>
+<li><code>{Object}</code> nodejs module object (uses module.filename or module.id) for starting dir</li>
+</ul>
+</li>
+<li><code>cb</code> <code>{Function(err, pkg)}</code><ul>
+<li><code>err</code> <code>{Error | null}</code></li>
+<li><code>pkg</code> <code>{Object | null}</code> the contents of <code>package.json</code>. Null if none found.</li>
+</ul>
+</li>
+</ul>
+<p>Perform an asynchronous search for <code>package.json</code> up the dir tree.</p>
+<ul>
+<li>If no file is found, returns null.</li>
+<li><code>pkg.dirname</code> contains the path to the directory where this <code>package.json</code> was located.</li>
+</ul></div></div></div></div></body></html>

@@ -1,26 +1,22 @@
-var Q, fs, path, readJsonFile, walkup;
+var Q, fs, loadPkgFile, path, readFile, walkup;
 
 walkup = require('node-walkup');
 
 path = require('path');
 
-fs = require('fs');
-
 Q = require('q');
 
-readJsonFile = function(filename) {
-  var d;
-  d = Q.defer();
-  fs.readFile(filename, function(err, data) {
+fs = require('fs');
+
+readFile = Q.denodeify(fs.readFile);
+
+loadPkgFile = function(filename) {
+  return readFile(filename).then(function(data) {
     var pkg;
-    if (err != null) {
-      return d.reject(err);
-    }
     pkg = JSON.parse(data);
     pkg.dirname = path.dirname(filename);
-    return d.resolve(pkg);
+    return pkg;
   });
-  return d.promise;
 };
 
 module.exports = function(dir, cb) {
@@ -35,9 +31,9 @@ module.exports = function(dir, cb) {
     maxResults: 1
   }).then(function(res) {
     if (res.length === 0) {
-      return void 0;
+      return;
     }
-    return readJsonFile(path.join(res[0].dir, "package.json"));
+    return loadPkgFile(path.join(res[0].dir, "package.json"));
   }).then(function(pkg) {
     if (cb != null) {
       cb(null, pkg);
