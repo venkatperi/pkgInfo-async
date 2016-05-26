@@ -1,3 +1,2 @@
-module.exports = require( "./lib/pkgInfo" )
-  
-  
+module.exports = require( "./lib/pkginfo" )
+
