@@ -8,7 +8,7 @@
   "preferGlobal": false,
   "description": "Finds closest package.json walking up dir tree from given module/dir",
   "dependencies": {
-    "node-walkup": "^1.0.1",
+    "node-walkup": "^1.1.1",
     "q": "^1.4.1"
   },
   "engines": {
