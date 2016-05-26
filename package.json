@@ -18,7 +18,7 @@
   "bundleDependencies": [],
   "main": "dist/index",
   "scripts": {
-    "prepublish": "groc && grunt",
+    "prepublish": "grunt",
     "test": "mocha"
   },
   "devDependencies": {
